@@ -3,6 +3,7 @@ package org.example.warehouse;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public class Warehouse {
@@ -30,12 +31,12 @@ public class Warehouse {
     public List<ProductRecord> getProducts() {
         return List.copyOf(this.listWithProducts);
     }
-    public boolean getProductById(Object uuid) {
-        return false;
+    public Optional<ProductRecord> getProductById(UUID productUUID) {
+        return null;
 
     }
 
-    public void updateProductPrice(Object uuid, BigDecimal bigDecimal) {
+    public void updateProductPrice(UUID productUUID, BigDecimal productPrice) {
     }
 
     public boolean getChangedProducts() {

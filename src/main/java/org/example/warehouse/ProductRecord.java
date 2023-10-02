@@ -18,16 +18,19 @@ public class ProductRecord {
 
     }
 
-    public Object uuid() {
-        return null;
+    public UUID productUUID() {
+        return this.productUUID();
     }
 
     public Category category() {
-        return null;
+        return this.productCategory;
     }
 
-    public boolean price() {
-        return false;
+    public BigDecimal price() {
+        return this.productPrice;
     }
 
+    public void setProductPrice(BigDecimal productPrice) {
+        this.productPrice = productPrice;
+    }
 }
