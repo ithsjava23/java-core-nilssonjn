@@ -29,4 +29,5 @@ public class ProductRecord {
     public boolean price() {
         return false;
     }
+
 }

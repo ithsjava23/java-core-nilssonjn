@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class Warehouse {
-    List<ProductRecord> listOfProducts = new ArrayList<>();
-
+    List<ProductRecord> listWithProducts = new ArrayList<>();
 
 
     public static Warehouse getInstance() {
@@ -20,20 +19,17 @@ public class Warehouse {
 
     public ProductRecord addProduct(UUID id, String name, Category category, BigDecimal price) {
         ProductRecord newItem = new ProductRecord(id, name, price, category);
-        listOfProducts.add(newItem);
+        listWithProducts.add(newItem);
         return newItem;
     }
 
     public boolean isEmpty() {
         return false;
-
     }
 
-    public boolean getProducts() {
-        return isEmpty();
-
+    public List<ProductRecord> getProducts() {
+        return List.copyOf(this.listWithProducts);
     }
-
     public boolean getProductById(Object uuid) {
         return false;
 
