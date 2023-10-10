@@ -9,6 +9,7 @@ public class ProductRecord {
     String productName;
     BigDecimal productPrice;
     Category productCategory;
+    boolean changed;
 
     public ProductRecord(UUID productUUID, String productName, BigDecimal productPrice, Category productCategory) {
         this.productName = productName;
@@ -16,6 +17,10 @@ public class ProductRecord {
         this.productUUID = productUUID;
         this.productCategory = productCategory;
 
+    }
+
+    public Category add(Category meat) {
+        return this.productCategory;
     }
 
     public UUID productUUID() {
@@ -32,5 +37,21 @@ public class ProductRecord {
 
     public void setProductPrice(BigDecimal productPrice) {
         this.productPrice = productPrice;
+    }
+
+    public UUID getUUID() {
+        return this.productUUID;
+    }
+
+    public boolean isChanged() {
+        return changed;
+    }
+
+    public UUID markAsChanged() {
+        return this.productUUID;
+    }
+
+    public UUID uuid() {
+        return this.productUUID;
     }
 }
