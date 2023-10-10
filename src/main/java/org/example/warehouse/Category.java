@@ -5,29 +5,28 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Category {
-    private static Map<String,Category> categoryMap = new HashMap<>();
+    private static final Map<String, Category> categoryMap = new HashMap<>();
     private String name;
 
 
     private Category(String name) {
-        this.name = name.substring(0,1).toUpperCase() + name.substring(1);
+        this.name = name;
     }
 
     public static Category of(String name) {
-        Category category = new Category(name);
-        category.name = name;
-        return category;
+        if (name == null) {
+            throw new IllegalArgumentException("Category name can't be null");
+        }
+        String capitalized = name.substring(0, 1).toUpperCase() + name.substring(1);
+        categoryMap.putIfAbsent(capitalized, new Category(capitalized));
+        //Category category = new Category(name);
+        //category.name = name;
+        return categoryMap.get(capitalized);
     }
 
     public String getName() {
         return name;
     }
-
-
-    //@Override
-    //public int compareTo(Object o) {
-    //    return 0;
-    //}
 
     @Override
     public boolean equals(Object o) {
