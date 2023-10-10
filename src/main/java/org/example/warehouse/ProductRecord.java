@@ -5,22 +5,26 @@ import java.util.UUID;
 
 public class ProductRecord {
 
-    UUID productUUID;
-    String productName;
-    BigDecimal productPrice;
-    Category productCategory;
+    UUID uuid;
+    String name;
+    BigDecimal price;
+    Category category;
     boolean changed;
 
-    public ProductRecord(UUID productUUID, String productName, BigDecimal productPrice, Category productCategory) {
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.productUUID = productUUID;
-        this.productCategory = productCategory;
+    public ProductRecord(UUID uuid, String name, BigDecimal price, Category category) {
+        this.name = name;
+        this.price = price;
+        this.uuid = uuid;
+        this.category = category;
 
     }
 
+    public Category getCategory() {
+        return this.category;
+    }
+
     public Category add(Category meat) {
-        return this.productCategory;
+        return this.category;
     }
 
     public UUID productUUID() {
@@ -28,19 +32,19 @@ public class ProductRecord {
     }
 
     public Category category() {
-        return this.productCategory;
+        return this.category;
     }
 
     public BigDecimal price() {
-        return this.productPrice;
+        return this.price;
     }
 
-    public void setProductPrice(BigDecimal productPrice) {
-        this.productPrice = productPrice;
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     public UUID getUUID() {
-        return this.productUUID;
+        return this.uuid;
     }
 
     public boolean isChanged() {
@@ -48,10 +52,18 @@ public class ProductRecord {
     }
 
     public UUID markAsChanged() {
-        return this.productUUID;
+        return this.uuid;
     }
 
     public UUID uuid() {
-        return this.productUUID;
+        return this.uuid;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public BigDecimal getProductPrice() {
+        return price;
     }
 }
