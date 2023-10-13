@@ -18,10 +18,6 @@ public class ProductRecord {
 
     }
 
-    public Category getCategory() {
-        return this.category;
-    }
-
     public Category category() {
         return this.category;
     }
@@ -32,10 +28,6 @@ public class ProductRecord {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
-    }
-
-    public UUID getUUID() {
-        return this.uuid;
     }
 
     public UUID uuid() {

@@ -30,7 +30,7 @@ public class Warehouse {
             throw new IllegalArgumentException("Product name can't be null or empty.");
         if (category == null)
             throw new IllegalArgumentException("Category can't be null.");
-        if (listWithProducts.stream().anyMatch(newItem -> newItem.getUUID().equals(uuid)))
+        if (listWithProducts.stream().anyMatch(newItem -> newItem.uuid().equals(uuid)))
             throw new IllegalArgumentException("Product with that id already exists, use updateProduct for updates.");
         if (price == null) {
             price = BigDecimal.ZERO;
@@ -51,7 +51,7 @@ public class Warehouse {
 
     public Optional<ProductRecord> getProductById(UUID uuid) {
         return listWithProducts.stream()
-                .filter(product -> product.getUUID().equals(uuid))
+                .filter(product -> product.uuid().equals(uuid))
                 .findFirst();
     }
     public void updateProductPrice(UUID uuid, BigDecimal price) {
@@ -70,12 +70,12 @@ public class Warehouse {
 
     public Map<Category, List<ProductRecord>> getProductsGroupedByCategories() {
         return listWithProducts.stream()
-                .collect(Collectors.groupingBy(ProductRecord::getCategory));
+                .collect(Collectors.groupingBy(ProductRecord::category));
     }
 
     public List<ProductRecord> getProductsBy(Category category) {
         return listWithProducts.stream()
-                .filter(product -> product.getCategory().equals(category))
+                .filter(product -> product.category().equals(category))
                 .collect(Collectors.toList());
     }
 }
