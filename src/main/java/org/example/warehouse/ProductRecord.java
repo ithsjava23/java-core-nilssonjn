@@ -5,11 +5,10 @@ import java.util.UUID;
 
 public class ProductRecord {
 
-    UUID uuid;
-    String name;
-    BigDecimal price;
-    Category category;
-    boolean changed;
+    private final UUID uuid;
+    private final String name;
+    private BigDecimal price;
+    private final Category category;
 
     public ProductRecord(UUID uuid, String name, BigDecimal price, Category category) {
         this.name = name;
@@ -21,14 +20,6 @@ public class ProductRecord {
 
     public Category getCategory() {
         return this.category;
-    }
-
-    public Category add(Category meat) {
-        return this.category;
-    }
-
-    public UUID productUUID() {
-        return this.productUUID();
     }
 
     public Category category() {
@@ -47,23 +38,7 @@ public class ProductRecord {
         return this.uuid;
     }
 
-    public boolean isChanged() {
-        return changed;
-    }
-
-    public UUID markAsChanged() {
-        return this.uuid;
-    }
-
     public UUID uuid() {
         return this.uuid;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public BigDecimal getProductPrice() {
-        return price;
     }
 }
